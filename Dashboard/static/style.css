@@ -1,0 +1,60 @@
+body {
+  background: #1e1e1e;
+  color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input,
+button {
+  padding: 10px;
+  margin-top: 5px;
+}
+
+button {
+  background: #0b80ff;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+button.stop {
+  background: red;
+}
+
+#logs {
+  background: #111;
+  border: 1px solid #333;
+  padding: 10px;
+  height: 400px;
+  overflow-y: scroll;
+  white-space: pre-wrap;
+}
+
+.box {
+  display: flex;
+  border: 2px solid #404040;
+  padding: 40px 0px;
+  border-radius: 14px;
+  margin: 30px 0px;
+  justify-content: center;
+}
+
+form#startForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+form#stopForm {
+  padding: 2px 0px 0px 10px;
+}

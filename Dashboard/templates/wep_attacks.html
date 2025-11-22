@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WEP Attacks Dashboard</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+
+<h1>WEP Attacks</h1>
+<p>Showing Wesside-NG and WEP Broadcast Data attacks.</p>
+
+<table id="logTable">
+    <thead>
+        <tr>
+            <th>Timestamp</th>
+            <th>Source MAC</th>
+            <th>BSSID</th>
+            <th>Attack Type</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+fetch('/es-query?type=wep')
+    .then(res => res.json())
+    .then(data => {
+        let tbody = document.querySelector("#logTable tbody");
+        data.forEach(log => {
+            let row = `
+                <tr>
+                    <td>${log.timestamp}</td>
+                    <td>${log.src_mac}</td>
+                    <td>${log.bssid}</td>
+                    <td>${log.attack_type}</td>
+                    <td>${log.details}</td>
+                </tr>
+            `;
+            tbody.innerHTML += row;
+        });
+    });
+</script>
+
+</body>
+</html>
+
